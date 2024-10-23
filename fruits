@@ -1,0 +1,16 @@
+<script>
+    let fruits = ["Eple", "Banan", "Appelsin", "Druer"];
+
+    function addFruit() {
+        fruits.push("Pære");
+    }
+</script>
+
+<h1>Mine favorittfrukter</h1>
+<ul>
+    {#each fruits as fruit}
+        <li>{fruit}</li>
+    {/each}
+</ul>
+
+<button on:click={addFruit}>Legg til Pære</button>
