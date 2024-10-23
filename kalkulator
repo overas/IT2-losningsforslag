@@ -1,0 +1,62 @@
+<script>
+    let num1 = '';
+    let num2 = '';
+    let operation = '';
+    let result = '';
+
+    function calculate() {
+        const number1 = parseFloat(num1);
+        const number2 = parseFloat(num2);
+
+        if (isNaN(number1) || isNaN(number2)) {
+            result = 'Vennligst skriv inn gyldige tall';
+            return;
+        }
+
+        switch (operation) {
+            case '+':
+                result = number1 + number2;
+                break;
+            case '-':
+                result = number1 - number2;
+                break;
+            case '*':
+                result = number1 * number2;
+                break;
+            case '/':
+                // Her er feilen: Vi glemmer å sjekke om number2 er 0  
+                result = number1 / number2; 
+                break;
+            default:
+                result = 'Vennligst velg en operasjon';
+        }
+    }
+</script>
+
+<main>
+    <h1>Kalkulator</h1>
+    <input type="number" bind:value={num1} placeholder="Tall 1" />
+    <input type="number" bind:value={num2} placeholder="Tall 2" />
+    
+    <select bind:value={operation}>
+        <option value="">Velg operasjon</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    
+    <button on:click={calculate}>Beregn</button>
+    
+    <h2>Resultat: {result}</h2>
+</main>
+
+<style>
+    main {
+        text-align: center;
+        margin-top: 50px;
+    }
+    input, select, button {
+        margin: 10px;
+    }
+</style>
