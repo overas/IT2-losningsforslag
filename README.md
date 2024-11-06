@@ -1,2 +1,2 @@
 # Svelte-prosjekter
-Svelte løsningsforslag for IT1 og IT2 
+IT2 Svelte løsningsforslag
